@@ -1,0 +1,287 @@
+[⚠️ Suspicious Content] <!DOCTYPE html>
+<html lang="en">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts - Open Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #F2F2F2;
+      /* Changed font-family to Open Sans */
+      font-family: "Open Sans", sans-serif;
+      color: #532A8C;
+      width: 100%;
+    }
+
+    .tab-container {
+      width: 100%;
+      max-width: 900px;
+      background-color: transparent;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      overflow: visible;
+      padding: 10px 0; /* Added 10px padding to top and bottom */
+    }
+
+    .tab-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: transparent;
+      padding: 10px 10px 0 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tab-button {
+      flex: 1 1 auto;
+      min-width: 150px;
+      padding: 15px 10px;
+      text-align: center;
+      cursor: pointer;
+      /* --- Changes for initial tab state --- */
+      color: #532A8C; /* Dark purple text */
+      background-color: #FFFFFF; /* White background */
+      border: 1px solid #532A8C; /* Dark purple border */
+      /* --- End changes for initial tab state --- */
+      font-weight: 600;
+      transition: all 0.3s ease-in-out;
+      border-bottom: none;
+      outline: none;
+      font-size: 0.9rem;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      white-space: normal;
+      line-height: 1.2;
+      margin-right: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .tab-button:nth-child(n+5) {
+      margin-top: 10px;
+    }
+
+    .tab-button.active {
+      /* --- Changes for active tab state --- */
+      background-color: #532A8C; /* Dark purple background */
+      color: #F2F2F2; /* Light grey text for contrast */
+      border-color: #532A8C; /* Dark purple border */
+      border-bottom-color: #532A8C; /* Dark purple border-bottom */
+      /* --- End changes for active tab state --- */
+      z-index: 2;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .tab-button:hover:not(.active) {
+      /* --- Changes for hover state of inactive tabs --- */
+      background-color: #C3ACE8; /* Lighter purple for hover */
+      color: #532A8C; /* Dark purple text */
+      border-color: #C3ACE8; /* Lighter purple border */
+      /* --- End changes for hover state --- */
+    }
+
+    .tab-content {
+      padding: 30px;
+      display: none;
+      background-color: #ffffff;
+      border: 1px solid #7ABF49; /* This border remains green as per previous design */
+      border-radius: 12px;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      margin-top: -1px;
+      position: relative;
+      z-index: 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    h2 { /* Kept h2 style for potential future use or if other h2s exist */
+      color: #532A8C;
+      margin-bottom: 20px;
+      font-size: 1.75rem;
+      font-weight: 700;
+    }
+
+    p {
+      margin-bottom: 15px;
+      line-height: 1.6;
+    }
+
+    strong {
+      color: #532A8C;
+    }
+
+    a {
+      color: #7ABF49 !important; /* Link color remains green as per previous design */
+      text-decoration: none;
+      transition: color 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #532A8C !important;
+    }
+
+    .external-link-icon {
+      margin-left: 5px;
+      width: 14px;
+      height: 14px;
+      fill: currentColor;
+      transition: transform 0.2s ease;
+    }
+
+    a:hover .external-link-icon {
+      transform: translateX(2px);
+    }
+
+    /* Added/Adjusted styles for ul and li within tab-content */
+    .tab-content ul {
+      list-style-type: disc; /* Ensure disc bullets */
+      margin-left: 25px; /* Standard indent for lists */
+      padding-left: 0; /* Reset default padding to control indent with margin-left */
+      margin-top: 10px; /* Space above the list */
+      margin-bottom: 15px; /* Space below the list, similar to paragraphs */
+    }
+
+    .tab-content ul li {
+      margin-bottom: 8px; /* Space between list items */
+      line-height: 1.6; /* Match paragraph line height for consistency */
+    }
+
+    @media (max-width: 768px) {
+      .tab-container {
+        width: 95%;
+        margin: 0 auto;
+      }
+
+      .tab-buttons {
+        flex-direction: column;
+        padding: 10px;
+      }
+
+      .tab-button {
+        border-radius: 8px;
+        min-width: 100%;
+        margin-right: 0;
+        margin-bottom: 5px;
+      }
+
+      .tab-button:nth-child(n+5) {
+        margin-top: 0;
+      }
+
+      .tab-button:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+      }
+
+      .tab-content {
+        padding: 20px;
+        border-radius: 12px;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+
+
+  <div style="display: flex; justify-content: center; padding: 20px 10px;">
+    <div class="tab-container">
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'approved-codes')">Approved Codes of Practice</button>
+        <button class="tab-button" onclick="openTab(event, 'australian-standards')">Australian Standards</button>
+        <button class="tab-button" onclick="openTab(event, 'industry-codes')">Industry Codes of Practice</button>
+        <button class="tab-button" onclick="openTab(event, 'other-laws')">Other Important Laws and Policies</button>
+      </div>
+
+      <div id="approved-codes" class="tab-content active">
+        <p>These are guides on how to follow the laws and give practical advice on how to make workplaces safe. Following a Code of Practice shows you are trying to do the right thing. They can be found on the <a href="https://www.safework.nsw.gov.au/" target="_blank" rel="noopener noreferrer" aria-label="Open SafeWork NSW website in a new tab">SafeWork NSW website <svg class="external-link-icon" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a>.</p>
+        <p>It is considered very important to follow the codes of practice.</p>
+      </div>
+
+      <div id="australian-standards" class="tab-content">
+        <p>Australian Standards are agreed ways of doing things safely, made by experts. They set an expected level of safety.</p>
+        <p>Unless an Australian Standard is included in the Regulation, it is not an offence to not follow it. But courts accept that a reasonable person would meet this standard.</p>
+        <p>Examples for dental practices:</p>
+        <ul>
+          <li><strong>AS 5369-2023</strong> – Replaces AS/NZS 4815:2006. It covers how to clean and sterilise reusable instruments in healthcare, including dental clinics.</li>
+          <li><strong>Occupational Protective Footwear</strong> – Also part of AS 5369-2023.</li>
+        </ul>
+        <p>More details can be found on the <a href="https://www.standards.org.au/" target="_blank" rel="noopener noreferrer" aria-label="Open Standards Australia website in a new tab">Standards Australia website <svg class="external-link-icon" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a>.</p>
+      </div>
+
+      <div id="industry-codes" class="tab-content">
+        <p>These give advice on how to work safely in a specific job. They show what a reasonable person in that field would do to stay safe.</p>
+        <p>It’s important to follow these codes to show you are doing the right thing.</p>
+        <p>You can access useful Codes of Practice from:</p>
+        <ul>
+          <li><a href="https://www.dentalboard.gov.au/" target="_blank" rel="noopener noreferrer" aria-label="Open Dental Board of Australia website in a new tab">Dental Board of Australia <svg class="external-link-icon" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></li>
+          <li><a href="https://www.ada.org.au/" target="_blank" rel="noopener noreferrer" aria-label="Open Australian Dental Association website in a new tab">Australian Dental Association <svg class="external-link-icon" viewBox="0 0 24 24"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg></a></li>
+        </ul>
+      </div>
+
+      <div id="other-laws" class="tab-content">
+        <p>There are other laws you need to know and follow:</p>
+        <ul>
+          <li>Poisons and Therapeutic Goods Act</li>
+          <li>Health Records and Information Privacy Act</li>
+          <li>EPA NSW Radiation Safety Practice Policies</li>
+        </ul>
+
+        <p>Each workplace should also have its own <strong>Practice Policies</strong> – these are the rules for safety at work. Everyone, including bosses (PCBUs), workers, and visitors must follow them.</p>
+        <p>These documents help show you are trying to keep people safe:</p>
+        <ul>
+          <li>Approved Codes of Practice</li>
+          <li>Australian Standards</li>
+          <li>Industry Codes of Practice</li>
+          <li>Practice Policies</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openTab(evt, tabName) {
+      let i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tab-button");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        // Reset to inactive state colors
+        tablinks[i].style.borderColor = '#532A8C'; /* Dark purple border */
+        tablinks[i].style.borderBottomColor = 'transparent'; /* Transparent bottom border */
+        tablinks[i].style.backgroundColor = '#FFFFFF'; /* White background */
+        tablinks[i].style.color = '#532A8C'; /* Dark purple text */
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+      // Set active state colors
+      evt.currentTarget.style.backgroundColor = '#532A8C'; /* Dark purple background */
+      evt.currentTarget.style.color = '#F2F2F2'; /* Light grey text */
+      evt.currentTarget.style.borderColor = '#532A8C'; /* Dark purple border */
+      evt.currentTarget.style.borderBottomColor = '#532A8C'; /* Dark purple bottom border */
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const firstTabButton = document.querySelector('.tab-button');
+      if (firstTabButton) firstTabButton.click();
+    });
+  </script>
+
+</html>
